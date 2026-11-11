@@ -1,0 +1,18 @@
+<section class="cream contact" id="contact">
+  <div class="wrap">
+    <h2 appReveal>
+      @for (w of words; track $index; let i = $index) {
+        <span class="w"><span [style.--i]="i">{{ w }}</span></span>{{ ' ' }}
+      }
+    </h2>
+    <p data-reveal>
+      I’m looking for my first full-time role as a Full Stack Engineer. Send me a message and
+      I’ll reply as soon as I can.
+    </p>
+    <div class="btns" data-reveal style="--d: 0.1s">
+      <a class="btn dark" appMagnetic [href]="mailto">Send an email</a>
+      <button class="btn ghost-dark" appMagnetic type="button" (click)="copyEmail()">Copy email address</button>
+      <a class="btn ghost-dark" appMagnetic [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>

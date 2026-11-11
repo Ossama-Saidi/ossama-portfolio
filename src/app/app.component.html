@@ -1,0 +1,22 @@
+<app-header />
+<app-hero />
+<app-marquee />
+
+<main>
+  <app-about />
+  <app-experience />
+  <app-projects />
+  <app-skills />
+  <app-education />
+  <app-contact />
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 {{ profile.name }}</span>
+    <span>{{ profile.location }}</span>
+  </div>
+</footer>
+
+<app-cursor-ring />
+<div class="toast" [class.show]="toast.visible()" role="status" aria-live="polite">{{ toast.message() }}</div>

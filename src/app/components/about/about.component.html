@@ -1,0 +1,43 @@
+<section id="about">
+  <div class="wrap">
+    <p class="tag" data-reveal>About</p>
+    <h2 data-reveal>Background &amp; Philosophy</h2>
+
+    <div class="about">
+      <div data-reveal>
+        <p class="pull">
+          Full Stack Engineer specialized in Angular, Next.js, and NestJS (Fastify), alongside enterprise Symfony, Laravel, and Spring Boot. Passionate about designing robust microservices, resilient SQL &amp; NoSQL data layers, and automated DevOps pipelines.
+        </p>
+        <p>
+          I recently graduated in Computer Engineering and specialized in Full Stack development.
+          I’m curious, autonomous and rigorous, and I want to contribute to innovative projects
+          within a dynamic team.
+        </p>
+        <p>
+          Outside of class I’ve been active in student life: the Student Council, the
+          AI &amp; New Technologies Club, and organizing the 2025 graduation ceremony and the
+          2026 Career Forum.
+        </p>
+      </div>
+
+      <div class="term" data-reveal="scale" style="--d: 0.12s" (revealed)="startTyping()">
+        <div class="term-top">
+          <i></i><i></i><i></i>
+          <span>ossama&#64;portfolio ~</span>
+        </div>
+        <div class="pre">
+          @for (line of script; track $index; let i = $index) {
+            <span class="tl" [class.ok]="line.ok" [class.d]="line.dim">
+              @for (seg of line.segs; track $index; let j = $index) {
+                <span [class.p]="seg.prompt">{{ typed()[i][j] }}</span>
+              }
+              @if (cursorLine() === i) {
+                <span class="caret" aria-hidden="true"></span>
+              }
+            </span>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

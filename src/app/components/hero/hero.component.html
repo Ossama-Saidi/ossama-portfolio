@@ -1,0 +1,54 @@
+<div class="hero" id="top" #hero>
+  <app-particle-network />
+
+  <div class="wrap">
+    <h1 class="hero-word" #word aria-label="Portfolio">
+      @for (l of letters; track l.i) {
+        <span [style.--i]="l.i" aria-hidden="true">{{ l.ch }}</span>
+      }
+    </h1>
+
+    <div class="hero-grid">
+      <div>
+        <p class="hello">Hello, I’m</p>
+        <p class="name" role="heading" aria-level="2">{{ profile.firstName }}.</p>
+        <p class="role"><span>{{ typed() }}</span><span class="caret" aria-hidden="true"></span></p>
+        <p class="lede">
+          Recent Computer Engineering graduate. I build <b>high-performance web applications</b>,
+          REST APIs and microservices, and I care about the <b>DevOps pipeline</b> that ships them.
+        </p>
+        <div class="btns">
+          <a class="btn primary" appMagnetic href="#contact">Get in touch</a>
+          <a class="btn" appMagnetic href="#projects">See my projects</a>
+        </div>
+        <div class="stats">
+          @for (s of stats; track s.label) {
+            <div class="stat">
+              <b [appCountUp]="s.value"></b>
+              <span>{{ s.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="stage">
+        <figure class="portrait" appTilt>
+          <!-- Placeholder silhouette: replace the whole <svg> with an <img> of your photo -->
+          <svg viewBox="0 0 400 500" role="img" aria-label="Portrait placeholder" preserveAspectRatio="xMidYMax slice">
+            <rect width="400" height="500" fill="#F4EDE0" />
+            <circle cx="200" cy="215" r="118" fill="#FF6858" />
+            <circle cx="200" cy="195" r="78" fill="#142130" />
+            <path d="M40 500c0-110 66-190 160-190s160 80 160 190z" fill="#142130" />
+            <path d="M200 312l-30 36 30 152 30-152z" fill="#F4EDE0" />
+          </svg>
+          <figcaption>Full Stack Engineer · {{ profile.location }}</figcaption>
+        </figure>
+        <div class="orbit" aria-hidden="true">
+          @for (badge of orbit; track badge) {
+            <i>{{ badge }}</i>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

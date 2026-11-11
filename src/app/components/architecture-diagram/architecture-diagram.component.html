@@ -1,0 +1,38 @@
+<div
+  class="diagram"
+  role="img"
+  aria-label="Architecture sketch: a Next.js client calls NestJS (Fastify) microservices with Prisma ORM, MySQL, Redis, and Elasticsearch, which exchange events through RabbitMQ and push real-time updates over WebSocket and SSE. Prometheus and Grafana monitor the services."
+>
+  <svg viewBox="0 0 640 300" aria-hidden="true">
+    <g class="flow">
+      <path d="M110 118 C150 118 140 42 180 42" />
+      <path d="M110 118 H180" />
+      <path d="M110 118 C150 118 140 202 180 202" />
+      <path d="M320 42 H400" />
+      <path d="M320 122 H400" />
+      <path d="M320 202 H400" />
+      <path d="M444 122 H500" />
+    </g>
+    <rect class="n" x="10" y="92" width="100" height="52" />
+    <text x="60" y="114" text-anchor="middle">Next.js</text>
+    <text class="sm" x="60" y="132" text-anchor="middle">client</text>
+
+    <rect class="n" x="180" y="20" width="140" height="44" />
+    <text x="250" y="47" text-anchor="middle">Users</text>
+    <rect class="n" x="180" y="100" width="140" height="44" />
+    <text x="250" y="127" text-anchor="middle">Messages</text>
+    <rect class="n" x="180" y="180" width="140" height="44" />
+    <text x="250" y="207" text-anchor="middle">Notifications</text>
+
+    <rect class="bus" x="400" y="20" width="44" height="204" />
+    <text transform="translate(427 122) rotate(-90)" text-anchor="middle">RabbitMQ</text>
+
+    <rect class="n" x="500" y="92" width="130" height="60" />
+    <text x="565" y="118" text-anchor="middle">Real-time</text>
+    <text class="sm" x="565" y="136" text-anchor="middle">WebSocket · SSE</text>
+
+    <rect class="mon" x="150" y="252" width="340" height="36" />
+    <text class="sm" x="320" y="275" text-anchor="middle">Prometheus + Grafana monitoring</text>
+    <text class="sm" x="250" y="14" text-anchor="middle">NestJS (Fastify) microservices</text>
+  </svg>
+</div>

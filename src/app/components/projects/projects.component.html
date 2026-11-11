@@ -1,0 +1,43 @@
+<section class="cream" id="projects">
+  <div class="wrap">
+    <p class="tag" data-reveal>Projects</p>
+    <h2 data-reveal>Academic Projects</h2>
+
+    <article class="feature" data-reveal>
+      <div>
+        <p class="src">{{ featured.source }}</p>
+        <h3>{{ featured.title }}</h3>
+        <p class="sub">{{ featured.subtitle }}</p>
+        <p class="body">{{ featured.summary }}</p>
+        <ul class="chips">
+          @for (tag of featured.tags; track tag) {
+            <li>{{ tag }}</li>
+          }
+        </ul>
+      </div>
+
+      <!-- @defer: the diagram's code is downloaded only when this spot scrolls into view -->
+      @defer (on viewport) {
+        <app-architecture-diagram />
+      } @placeholder {
+        <div class="diagram" style="aspect-ratio: 640/300; min-height: 140px"></div>
+      }
+    </article>
+
+    <div class="cards">
+      @for (p of projects; track p.title; let i = $index) {
+        <article class="card" appTilt data-reveal [style.--d]="(0.05 + i * 0.1) + 's'">
+          <p class="src">{{ p.source }}</p>
+          <h3>{{ p.title }}</h3>
+          <p class="sub">{{ p.subtitle }}</p>
+          <p class="body">{{ p.summary }}</p>
+          <ul class="chips">
+            @for (tag of p.tags; track tag) {
+              <li>{{ tag }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

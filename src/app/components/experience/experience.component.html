@@ -1,0 +1,22 @@
+<section id="experience" style="padding-top: 24px">
+  <div class="wrap">
+    <p class="tag" data-reveal>Experience</p>
+    <h2 data-reveal>Professional Experience</h2>
+
+    <div class="timeline" #timeline [style.--p]="progress()">
+      @for (j of jobs; track j.title; let i = $index) {
+        <article class="job" #jobEl [class.on]="reached()[i]">
+          <div class="when">{{ j.period }}</div>
+          <h3>{{ j.title }}</h3>
+          <div class="where">{{ j.place }}</div>
+          <p>{{ j.summary }}</p>
+          <ul class="chips">
+            @for (tag of j.tags; track tag) {
+              <li>{{ tag }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

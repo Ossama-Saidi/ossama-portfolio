@@ -1,0 +1,54 @@
+<header class="hdr" [class.small]="scroll.scrolled()" [class.hide]="scroll.hidden() && !menuOpen()">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top" aria-label="Ossama Saidi, back to top">
+      <span class="mark" aria-hidden="true">OS</span>
+      <span>OSSAMA SAIDI</span>
+    </a>
+
+    <nav class="links" aria-label="Main">
+      <span
+        class="pill"
+        aria-hidden="true"
+        [style.width.px]="pill().w"
+        [style.transform]="'translateX(' + pill().x + 'px)'"
+        [style.opacity]="pill().on ? 1 : 0"
+      ></span>
+      @for (link of links; track link.id) {
+        <a
+          #navLink
+          [attr.data-s]="link.id"
+          [href]="'#' + link.id"
+          [class.on]="active() === link.id"
+          (mouseenter)="onHover($event)"
+          (focus)="onHover($event)"
+          (mouseleave)="restorePill()"
+        >{{ link.label }}</a>
+      }
+      <a class="cta" href="#contact">Contact</a>
+    </nav>
+
+    <button
+      class="burger"
+      type="button"
+      aria-controls="menu"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+      (click)="toggleMenu()"
+    >
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="progress" [style.transform]="'scaleX(' + scroll.progress() + ')'"></div>
+</header>
+
+<div class="menu" id="menu" aria-label="Menu">
+  @for (link of links; track link.id; let first = $first) {
+    @if (first) {
+      <a #firstMenuLink [href]="'#' + link.id" (click)="closeMenu()">{{ link.label }}</a>
+    } @else {
+      <a [href]="'#' + link.id" (click)="closeMenu()">{{ link.label }}</a>
+    }
+  }
+  <a href="#contact" (click)="closeMenu()">Contact</a>
+  <small>{{ profile.email }}</small>
+</div>
